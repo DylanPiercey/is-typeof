@@ -63,11 +63,11 @@ test('should validate Empty types', function (t) {
   t.plan(emptyExamples.length + notEmptyExamples.length)
 
   emptyExamples.forEach(function (value) {
-    t.equal(isType.empty(value), true)
+    t.equal(isType.empty(value), true, '(' + toString(value) + ') ' + 'should be empty')
   })
 
   notEmptyExamples.forEach(function (value) {
-    t.equal(isType.empty(value), false)
+    t.equal(isType.empty(value), false, '(' + toString(value) + ') ' + 'should not be empty')
   })
 })
 

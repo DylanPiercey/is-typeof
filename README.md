@@ -72,6 +72,6 @@ isType.empty([1]); // false
 
 ### Contributions
 
-* Use gulp to run tests.
+* Use `npm test` to run tests.
 
 Please feel free to create a PR!

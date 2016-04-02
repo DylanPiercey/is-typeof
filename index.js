@@ -51,13 +51,16 @@ function noop () {}
  * @param {String} type
  * @api private
  */
-function isType (type) {
-  var _typeof = type.toLowerCase()
+function isType (name) {
+  var type = name.toLowerCase()
   return Object.defineProperty(function (val) {
-    return (
-      (typeof val === _typeof && typeof val !== 'object') ||
-      (typeof val === 'object' || typeof val === 'function') &&
-      toString.call(val) === typeClass[_typeof]
-    )
-  }, 'name', { value: 'is' + type })
+    var _typeof = typeof val
+    switch (_typeof) {
+      case 'object':
+      case 'function':
+        return toString.call(val) === typeClass[type]
+      default:
+        return _typeof === type
+    }
+  }, 'name', { value: 'is' + name })
 }
