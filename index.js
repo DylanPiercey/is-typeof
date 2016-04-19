@@ -53,7 +53,7 @@ function noop () {}
  */
 function isType (name) {
   var type = name.toLowerCase()
-  return Object.defineProperty(function (val) {
+  return function (val) {
     var _typeof = typeof val
     switch (_typeof) {
       case 'object':
@@ -62,5 +62,5 @@ function isType (name) {
       default:
         return _typeof === type
     }
-  }, 'name', { value: 'is' + name })
+  }
 }
