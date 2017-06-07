@@ -47,7 +47,7 @@ module.exports = {
  */
 function isType (name) {
   var type = name.toLowerCase()
-  return function isSpecificType (val) {
+  return function (val) {
     var _typeof = typeof val
     switch (_typeof) {
       case 'object':
