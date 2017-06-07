@@ -1,7 +1,6 @@
 'use strict'
 
 var toString = Object.prototype.toString
-var buffer = global.Buffer || noop
 var typeClass = {
   string: '[object String]',
   number: '[object Number]',
@@ -30,7 +29,7 @@ module.exports = {
     return val != null && typeof val.pipe === 'function'
   },
   buffer: function isBuffer (val) {
-    return val instanceof buffer
+    return val != null && val.constructor != null && typeof val.constructor.isBuffer === 'function'
   },
   empty: function isEmpty (val) {
     /* eslint-disable */
@@ -40,11 +39,6 @@ module.exports = {
   }
 }
 
-/**
- * Does nothing.
- */
-function noop () {}
-
 /*
  * Creates a type checker function based on the given type.
  *
@@ -53,7 +47,7 @@ function noop () {}
  */
 function isType (name) {
   var type = name.toLowerCase()
-  return Object.defineProperty(function (val) {
+  return function isSpecificType (val) {
     var _typeof = typeof val
     switch (_typeof) {
       case 'object':
@@ -62,5 +56,5 @@ function isType (name) {
       default:
         return _typeof === type
     }
-  }, 'name', { value: 'is' + name })
+  }
 }
