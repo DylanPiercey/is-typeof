@@ -68,8 +68,8 @@ check.isDate(new Date); // true
 check.isDate(1); // false
 
 // RegExp
-check.isRegexp(/a/g); // true
-check.isRegexp(1); // false
+check.isRegExp(/a/g); // true
+check.isRegExp(1); // false
 
 // Error
 check.isError(new TypeError("Bad!")); // true
@@ -105,8 +105,6 @@ check.isBuffer(""); // false
 check.isEmpty([]); // true
 check.isEmpty([1]); // false
 ```
-
-### See tests for more examples.
 
 ### Contributions
 
