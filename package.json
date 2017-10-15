@@ -1,7 +1,7 @@
 {
   "name": "is-typeof",
   "description": "Better type checking for JavaScript.",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "Dylan Piercey <pierceydylan@gmail.com>",
   "bugs": "https://github.com/DylanPiercey/is-typeof/issues",
   "devDependencies": {
